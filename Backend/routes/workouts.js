@@ -2,7 +2,9 @@ const express = require('express')
 
 const { createworkout,
     getaworkout,
-    getworkouts} = require('../controller/workout_control')
+    getworkouts,
+    deleteworkout,
+    updateworkout} = require('../controller/workout_control')
 
 const router = express.Router()
 
@@ -16,14 +18,10 @@ router.get('/:id' ,getaworkout)
 router.post('/',createworkout)
 
 //delete a workout
-router.delete('/:id' , (req , res) => {
-    res.json({mssg: 'delete a Workout'})
-})
+router.delete('/:id' , deleteworkout)
 
 //update a workout
-router.patch('/:id' , (req , res) => {
-    res.json({mssg: 'update a Workout'})
-})
+router.patch('/:id' , updateworkout)
 
 //here we export the router module and this will get it as a require
 // in server.js
